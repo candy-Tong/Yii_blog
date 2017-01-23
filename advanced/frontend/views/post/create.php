@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <span>创建文章</span>
         </div>
         <div class="panel-body">
-            <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+            <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data;charset=utf-8']]) ?>
 
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
             <?= $form->field($model, 'cat_id')->dropDownList($cat); ?>

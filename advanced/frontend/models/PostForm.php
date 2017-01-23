@@ -84,7 +84,6 @@ class PostForm extends Model
             $model->user_name = Yii::$app->user->identity->username;
             $model->created_at = time();
             $model->updated_at = time();
-//            Console::console($model->title);
             if (!$model->save()) {
                 throw new \Exception(Yii::t('common', 'Save failed!'));
             }
