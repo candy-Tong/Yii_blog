@@ -48,7 +48,6 @@ class PostController extends BaseController
 
     public function actionCreate()
     {
-
         $model = new PostForm();
         //定义场景
         $model->setScenario(PostForm::SCENARIO_CREATE);
