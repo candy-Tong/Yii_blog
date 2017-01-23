@@ -85,6 +85,9 @@ class PostForm extends Model
             $model->created_at = time();
             $model->updated_at = time();
 //            Console::console($model->title);
+            if (true) {
+                throw new \Exception(''.$this->attributes['title']);
+            }
             if (!$model->save()) {
                 throw new \Exception(Yii::t('common', 'Save failed!'));
             }
