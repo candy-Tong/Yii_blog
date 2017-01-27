@@ -34,6 +34,12 @@ class PostForm extends Model
      */
     const SCENARIO_CREATE = 'create';
     const SCENARIO_UPDATE = 'update';
+    /**
+     * EVENT_AFTER_CRESTE   创建后的事件
+     * EVENT_AFTER_UPDATE   更新后的事件
+     */
+    const EVENT_AFTER_CREATE='eventAfterCreate';
+    const EVENT_AFTER_UPDATE='eventAfterUpdate';
 
     public function scenarios()
     {
@@ -90,7 +96,8 @@ class PostForm extends Model
             $this->id = $model->id;
 
             //调用事件
-            $this->_eventAfterCreate();
+            $data=array_merge($this->getAttributes(),$model->getAttributes());
+            $this->_eventAfterCreate($data);
 
 
             $transaction->commit();
@@ -119,11 +126,16 @@ class PostForm extends Model
     /**
      * 创建完成后调用的事件方法
      */
-
-    private function _eventAfterCreate(){
-
+    private function _eventAfterCreate($data){
+        //附加处理器到事件
+        $this->on(self::EVENT_AFTER_CRASTE,[$this,'_evenAddTag'],$data);
+        //触发事件
+        $this->trigger(self::EVENT_AFTER_CREATE);
     }
 
+    public function _evenAddTag(){
+
+    }
 
 
 
