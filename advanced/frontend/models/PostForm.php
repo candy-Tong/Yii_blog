@@ -9,8 +9,10 @@ namespace frontend\models;
 
 use common\Console;
 use common\models\Posts;
+use common\models\RelationPostTags;
 use yii\base\Model;
 use Yii;
+use yii\db\Query;
 
 /**
  * Class PostForm 文章表模型
@@ -128,13 +130,34 @@ class PostForm extends Model
      */
     private function _eventAfterCreate($data){
         //附加处理器到事件
-        $this->on(self::EVENT_AFTER_CRASTE,[$this,'_evenAddTag'],$data);
+        $this->on(self::EVENT_AFTER_CREATE,[$this,'_evenAddTag'],$data);
         //触发事件
         $this->trigger(self::EVENT_AFTER_CREATE);
     }
 
-    public function _evenAddTag(){
+    public function _evenAddTag($event)
+    {
+        //保存标签
+        $tag = new TagFrom();
+        $tag->tags = $event->data['tags'];
+        $tagids = $tag->saveTags();
 
+        //删除原先的关联,全部 文章-标签 关联关系重新写入
+        RelationPostTags::deleteAll(['post_id' => $event->data['id]']]);
+
+        //批量保存 文章-标签 关联关系
+        if (!empty($tagids)) {
+            foreach ($tagids as $k => $id) {
+                $row[$k]['post_id'] = $this->id;      //本篇文章的id
+                $row[$k]['tag_id'] = $id;             //标签的id
+            }
+            //批量插入
+            $res = (new Query())->createCommand()
+                ->batchInsert(RelationPostTags::tableName(), ['post_id', 'tag_id'], $row)
+                ->execute();
+            if(!$res)
+                throw new \Exception('关联关系保存失败');
+        }
     }
 
 
