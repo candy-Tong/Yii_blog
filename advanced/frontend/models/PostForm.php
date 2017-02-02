@@ -13,6 +13,7 @@ use common\models\RelationPostTags;
 use yii\base\Model;
 use Yii;
 use yii\db\Query;
+use yii\web\NotFoundHttpException;
 
 /**
  * Class PostForm 文章表模型
@@ -159,7 +160,20 @@ class PostForm extends Model
                 throw new \Exception('关联关系保存失败');
         }
     }
-
+    public function getViewById($id){
+       $res= Posts::find()->with('relate.tag')->where(['id'=>$id])->asArray()->one();
+       if (!$res){
+           throw new NotFoundHttpException('文章不存在！');
+       }
+       $res['tags']=[];
+       if(isset($res['relate'])&&!empty($res['relate'])){
+           foreach ($res['relate'] as $list){
+               $res['tags'][]=$list['tag']['tag_name'];
+           }
+       }
+       unset($res['relate']);
+       return $res;
+    }
 
 
 }

@@ -44,4 +44,10 @@ class RelationPostTags extends BaseModel
             'tag_id' => Yii::t('app', 'Tag ID'),
         ];
     }
+    public function getTag(){
+        // Tags->id
+        // RealtionPostTags->tag_id
+        //根据 RealtionPostTags->tag_id 找 Tags->id
+        return $this->hasOne(Tags::className(),['id'=>'tag_id']);
+    }
 }

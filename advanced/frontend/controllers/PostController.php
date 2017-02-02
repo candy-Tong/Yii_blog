@@ -95,10 +95,16 @@ class PostController extends BaseController
         return $this->render('create', ['model' => $model, 'cat' => $cat]);   //将表单模型作为参数传到视图，将表单模型跟视图绑定
 
     }
-    public  function actionTest(){
-        $test=['message'=>'ASDF'];
-        echo json_encode($test);
+    /**
+     * 文章展示
+     */
+    public function actionView($id){
+        $model=new PostForm();
+        $data=$model->getViewById($id);
+        return $this->render('view',['data'=>$data]);
     }
+
+
 }
 
 

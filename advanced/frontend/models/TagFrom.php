@@ -20,7 +20,7 @@ class TagFrom extends Model
     public function rule(){
         return [
             ['tags','require'],
-            ['tags','each','rule'=>['string']],
+            ['tags','each','rule'=>['create']],
         ];
     }
 

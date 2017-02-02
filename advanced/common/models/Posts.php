@@ -61,4 +61,7 @@ class Posts extends BaseModel
             'updated_at' => Yii::t('common', 'Updated At'),
         ];
     }
+    public function getRelate(){
+        return $this->hasMany(RelationPostTags::className(),['post_id'=>'id']);
+    }
 }
