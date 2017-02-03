@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][]=$this->title;
             <h1><?=$data['title']?></h1>
             <span>作者:<?=$data['user_name']?></span>
             <span>发布:<?=date('Y-m-d',$data['created_at'])?></span>
-            <span>浏览:0</span>
+            <span>浏览:<?=$data['extend']['browser']?></span>
         </div>
         <div class="page-content">
             <?=$data['content']?>
