@@ -54,17 +54,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="956">
               <caret line="171" column="11" lean-forward="false" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="11" />
-=======
-            <state relative-caret-position="444">
-              <caret line="142" column="30" lean-forward="false" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
->>>>>>> origin/master
+
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-=======
       <file leaf-file-name="TagFrom.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/advanced/frontend/models/TagFrom.php">
           <provider selected="true" editor-type-id="text-editor">
