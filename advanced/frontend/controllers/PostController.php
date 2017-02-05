@@ -99,11 +99,11 @@ class PostController extends BaseController
      * 文章展示
      */
     public function actionView($id){
-        $model=new PostForm();
-        $data=$model->getViewById($id);
         //文章统计
         $model=new PostExtends();
         $model->upCounter(['post_id'=>$id],'browser',1);
+        $model=new PostForm();
+        $data=$model->getViewById($id);
 
         return $this->render('view',['data'=>$data]);
     }

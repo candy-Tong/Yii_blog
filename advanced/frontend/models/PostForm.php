@@ -176,4 +176,37 @@ class PostForm extends Model
     }
 
 
+    public static function getList($condition,$curPage=1,$pageSize=5,$orderBy=['id'=>SORT_DESC]){
+        $model=new Posts();
+        //查询语句
+        $select=['id','title','summary','label_img','cat_id','user_id','user_name','is_valid','created_at',
+        'updated_at'];
+        $query=$model->find()
+            ->select($select)
+//            ->where($condition)
+            ->with('relate.tag','extend')
+            ->orderBy($orderBy);
+        //获取分页数据
+        $res=$model->getPages($query,$curPage,$pageSize);
+        //格式化
+        $res['data']=self::_formatList($res['data']);
+        return $res;
+    }
+
+    /**
+     * 数据格式化
+     * @param $data
+     */
+    public static function _formatList($data){
+        foreach ($data as &$list){          //加 & 因为需要改变$list
+            $list['tags']=[];
+            if (isset($list['relate'])&&!empty($list['relate'])){
+                foreach ($list['relate'] as $lt){
+                    $list['tags'][]=$lt['relate']['tag_name'];
+                }
+                unset($list['relate']);
+            }
+        }
+        return $data;
+    }
 }
