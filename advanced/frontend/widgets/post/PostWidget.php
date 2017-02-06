@@ -23,7 +23,7 @@ class PostWidget extends Widget{
     //是否显示更多
     public $more=true;
     //是否显示分页
-    public $page=false;
+    public $page=true;
 
     public function run()
     {
@@ -41,5 +41,4 @@ class PostWidget extends Widget{
         }
         return  $this->render('index',['data'=>$result]);
     }
-
 }

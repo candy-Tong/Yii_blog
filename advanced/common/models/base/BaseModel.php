@@ -44,7 +44,6 @@ class BaseModel extends ActiveRecord{
             ->limit($pageSize)
             ->asArray()
             ->all();
-        print_r($data);
        return $data;
 
     }

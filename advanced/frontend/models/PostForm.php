@@ -202,7 +202,7 @@ class PostForm extends Model
             $list['tags']=[];
             if (isset($list['relate'])&&!empty($list['relate'])){
                 foreach ($list['relate'] as $lt){
-                    $list['tags'][]=$lt['relate']['tag_name'];
+                    $list['tags'][]=$lt['tag']['tag_name'];
                 }
                 unset($list['relate']);
             }
