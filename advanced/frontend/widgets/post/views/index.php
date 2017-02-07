@@ -42,6 +42,6 @@ use yii\widgets\LinkPager;
         <?php endforeach;?>
     </div>
     <?php if($this->context->page):?>
-        <div class="page"><?=LinkPager::widget(['pagination' => $data['page']]);?></div>
+        <div class="page"><?=LinkPager::widget(['pagination' => $data['page'],'nextPageCssClass'=>null]);?></div>
     <?php endif;?>
 </div>
