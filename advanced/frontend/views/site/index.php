@@ -12,7 +12,7 @@ $this->title = '博客-首页';
         <span>
             <?=\frontend\widgets\post\PostWidget::widget()?>
         </span>
-
+        <?=\frontend\widgets\chat\ChatWidget::widget();?>
     </div>
     <div class="col-lg-3">
 

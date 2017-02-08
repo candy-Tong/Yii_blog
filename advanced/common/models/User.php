@@ -187,4 +187,6 @@ class User extends BaseModel implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+
 }

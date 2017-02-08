@@ -51,7 +51,7 @@ class BannerWidgets extends Widget
     }
     public function run()
     {
-        BannerAsset::addCss($this->view,'/imooc/Yii_blog/advanced/frontend/web/assets/dc230fd3/js/jquery-2.1.1.min.js');
+//        BannerAsset::addCss($this->view,'/imooc/Yii_blog/advanced/frontend/web/assets/dc230fd3/js/jquery-2.1.1.min.js');
         $this->registerClientScript();
         $data['item']=$this->item;
         $data['change']=$this->change;

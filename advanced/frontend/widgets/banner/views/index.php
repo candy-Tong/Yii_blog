@@ -48,6 +48,8 @@
     }
     .img-btn .img-btn-checked{
         background:url(<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/imgautobtn2.png) no-repeat;}
+
+
 </style>
 <div id="content">
     <div id="imgauto">
@@ -58,10 +60,14 @@
             <a></a>
         </div>
         <div class="img-con">
-            <a style="display:block" href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/imgauto_1.png" /></a>
-            <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/imgauto_2.png" /></a>
-            <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/imgauto_3.png"/></a>
-            <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/imgauto_4.png"/></a>
+            <a style="display:block" href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_1.jpg" /></a>
+            <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_2.jpg"/></a>
+            <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_3.jpg"/></a>
+            <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_4.jpg"/></a>
+
+
+
+
         </div>
 <!--        <div id="backbg" class="backbg"></div>-->
         <a class="pre" href="javascript:void(0);"><img width="35px" height="52px" src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/pre.png" /></a>
