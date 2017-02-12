@@ -5,7 +5,7 @@ return [
     'components' => [
         'user' => [
             'class' => 'yii\web\User',
-            'identityClass' => 'frontend\models\User',
+            'identityClass' => 'common\models\User',
         ],
     ],
 ];

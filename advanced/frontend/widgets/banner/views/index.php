@@ -64,10 +64,6 @@
             <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_2.jpg"/></a>
             <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_3.jpg"/></a>
             <a href="#"><img src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/img_4.jpg"/></a>
-
-
-
-
         </div>
 <!--        <div id="backbg" class="backbg"></div>-->
         <a class="pre" href="javascript:void(0);"><img width="35px" height="52px" src="<?=Yii::$app->params['f_widget_path']?>/banner/statics/img/pre.png" /></a>

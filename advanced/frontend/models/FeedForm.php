@@ -8,7 +8,9 @@
 namespace frontend\models;
 
 use app\models\Feeds;
+use yii\base\Exception;
 use yii\base\Model;
+use Yii;
 
 class FeedForm extends Model{
     public $content;
@@ -39,5 +41,24 @@ class FeedForm extends Model{
             ->asArray()
             ->all();
         return $res?:[];
+    }
+
+    /**
+     * 留言保存
+     * @return bool
+     */
+    public function create(){
+        try{
+            $model=new Feeds();
+            $model->user_id=Yii::$app->user->identity->id;
+            $model->created_at=time();
+            $model->content=$this->content;
+            if(!$model->save())
+                throw  new Exception('保存失败');
+            return true;
+        }catch (\Exception $e){
+            $this->_lastError=$e->getMessage();
+            return false;
+        }
     }
 }

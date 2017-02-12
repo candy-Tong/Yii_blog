@@ -5,6 +5,7 @@ namespace app\models;
 use common\models\base\BaseModel;
 use common\models\User;
 use Yii;
+use yii\base\Exception;
 
 /**
  * This is the model class for table "feeds".
@@ -50,6 +51,8 @@ class Feeds extends BaseModel
     }
 
     public function getUser(){
-        return $this->hasOne(User::className(),['id'=>'user_id']);;
+        return $this->hasOne(User::className(),['id'=>'user_id']);
     }
+
+
 }

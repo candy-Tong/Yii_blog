@@ -16,6 +16,7 @@ class ChatWidget extends Widget{
 
     public function run()
     {
+        //载入该组件的 css 和 js
         $this->registerClientScript();
         $feed=new FeedForm();
         $data['feed']=$feed->getList();
