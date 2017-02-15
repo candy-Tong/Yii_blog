@@ -16,5 +16,7 @@ $this->title = '博客-首页';
     </div>
     <div class="col-lg-3">
         <?=\frontend\widgets\chat\ChatWidget::widget();?>
+        <?=\frontend\widgets\hot\HotWidget::widget();?>
+        <?=\frontend\widgets\tag\TagWidget::widget();?>
     </div>
 </div>
